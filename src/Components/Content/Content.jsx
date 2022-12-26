@@ -1,21 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Content = (props) => {
+	const [displayText, setDisplayText] = useState(props.overview.content);
+	const [displayImage, setDisplayImage] = useState(props.images.planet);
+
 	return (
 		<div className="planet-card">
 			<nav className="planet-card__nav">
-				<button>Overview</button>
-				<button>Structure</button>
-				<button>Surface</button>
+				<button
+					onClick={() => {
+						setDisplayText(props.overview.content);
+						setDisplayImage(props.images.planet);
+					}}
+				>
+					Overview
+				</button>
+				<button
+					onClick={() => {
+						setDisplayText(props.structure.content);
+						setDisplayImage(props.images.internal);
+					}}
+				>
+					Structure
+				</button>
+				<button
+					onClick={() => {
+						setDisplayText(props.geology.content);
+						setDisplayImage(props.images.planet);
+					}}
+				>
+					Surface
+				</button>
 			</nav>
 			<img
-				src={props.images.planet}
+				src={displayImage}
 				alt={props.name}
 				className="planet-card__image"
 			/>
 			<div className="planet-card__info">
 				<div className="header">{props.name}</div>
-				<div className="text">{props.overview.content}</div>
+				<div className="text">{displayText}</div>
 				<a href="#nogo" className="source">
 					{props.overview.source} --icon--
 				</a>

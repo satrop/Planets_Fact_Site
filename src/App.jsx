@@ -22,12 +22,32 @@ const App = () => {
 					path="Planets_Fact_Site/Jupiter/"
 					element={<Jupiter />}
 				/>
-				{/* <Route exact path="/Mars" element={<Mars />} />
-				<Route exact path="/Mercury" element={<Mercury />} />
-				<Route exact path="/Neptune" element={<Neptune />} />
-				<Route exact path="/Saturn" element={<Saturn />} />
-				<Route exact path="/Uranus" element={<Uranus />} />
-				<Route exact path="/Venus" element={<Venus />} /> */}
+				<Route exact path="Planets_Fact_Site/Mars" element={<Mars />} />
+				<Route
+					exact
+					path="Planets_Fact_Site/Mercury"
+					element={<Mercury />}
+				/>
+				<Route
+					exact
+					path="Planets_Fact_Site/Neptune"
+					element={<Neptune />}
+				/>
+				<Route
+					exact
+					path="Planets_Fact_Site/Saturn"
+					element={<Saturn />}
+				/>
+				<Route
+					exact
+					path="Planets_Fact_Site/Uranus"
+					element={<Uranus />}
+				/>
+				<Route
+					exact
+					path="Planets_Fact_Site/Venus"
+					element={<Venus />}
+				/>
 			</Routes>
 		</>
 	);

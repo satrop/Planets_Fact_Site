@@ -1,7 +1,13 @@
 import React from 'react';
+import Content from '../Content/Content';
+import data from '../../assets/data.json';
 
 const Neptune = () => {
-	return <div>Neptune</div>;
+	const contentData = data.map((item) => {
+		return <Content key={item.name} {...item} />;
+	});
+
+	return <>{contentData[7]}</>;
 };
 
 export default Neptune;
