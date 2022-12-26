@@ -1,0 +1,21 @@
+.planet-card__image {
+	width: 173px;
+}
+
+@media (min-width: 768px) {
+	.planet-card__image {
+		width: 285px;
+	}
+
+	.planet-card__info {
+		.header {
+			text-align: left;
+		}
+	}
+}
+
+@media (min-width: 1440px) {
+	.planet-card__image {
+		width: 450px;
+	}
+}

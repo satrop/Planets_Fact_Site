@@ -11,10 +11,13 @@ body {
 	height: 100%;
 }
 body {
+	width: 100%;
+	overflow-x: hidden;
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
 	background-color: var(--clr-n-100);
 	color: var(--clr-n-200);
+	background-image: url('./assets/background-stars.svg');
 }
 img,
 picture,
@@ -45,6 +48,15 @@ h6 {
 	--clr-n-200: hsla(360, 100%, 100%, 1); // White
 	--clr-n-300: hsla(360, 100%, 100%, 0.5); // Gray
 
+	--clr-mercury: hsla(194, 48%, 49%, 1);
+	--clr-venus: hsla(33, 82%, 61%, 1);
+	--clr-earth: hsla(263, 67%, 51%, 1);
+	--clr-mars: hsla(10, 63%, 51%, 1);
+	--clr-jupiter: hsla(2, 68%, 53%, 1);
+	--clr-saturn: hsla(17, 73%, 46%, 1);
+	--clr-uranus: hsla(169, 73%, 44%, 1);
+	--clr-neptune: hsla(222, 87%, 56%, 1);
+
 	--border: hsla(360, 100%, 100%, 0.2);
 
 	--ff-title: 'Antonio', sans-serif;
@@ -56,6 +68,78 @@ h6 {
 	--fs-600: 0.9375rem; // 15
 	--fs-700: 1.25rem; // 20
 	--fs-800: 2.5rem; // 40
+
+	--lh-title: 3.25rem;
+	--lh-text: 1.375rem;
+	--lh-stat: 1.625rem;
+	--lh-400: 1rem;
+
+	--trans-dur: 0.3s ease-in-out;
+}
+
+.visually-hidden {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.container {
+	max-width: 327px;
+	margin-inline: auto;
+	padding-inline: 20px;
+}
+
+.planet-card {
+	&.Mercury {
+		button.active {
+			box-shadow: inset 0 -4px 0 var(--clr-mercury);
+		}
+	}
+
+	&.Venus {
+		button.active {
+			box-shadow: inset 0 -4px 0 var(--clr-venus);
+		}
+	}
+
+	&.Earth {
+		button.active {
+			box-shadow: inset 0 -4px 0 var(--clr-earth);
+		}
+	}
+
+	&.Mars {
+		button.active {
+			box-shadow: inset 0 -4px 0 var(--clr-mars);
+		}
+	}
+
+	&.Jupiter {
+		button.active {
+			box-shadow: inset 0 -4px 0 var(--clr-jupiter);
+		}
+	}
+
+	&.Saturn {
+		button.active {
+			box-shadow: inset 0 -4px 0 var(--clr-saturn);
+		}
+	}
+
+	&.Uranus {
+		button.active {
+			box-shadow: inset 0 -4px 0 var(--clr-uranus);
+		}
+	}
+
+	&.Neptune {
+		button.active {
+			box-shadow: inset 0 -4px 0 var(--clr-neptune);
+		}
+	}
 }
 
 @media (min-width: 768px) {
@@ -66,6 +150,72 @@ h6 {
 		--fs-600: 0.6875rem; // 11
 		--fs-700: 1.5rem; // 24
 		--fs-800: 3rem; // 48
+
+		--lh-title: 3.875rem;
+		--lh-text: 1.5625rem;
+		--lh-stat: 1.9375rem;
+	}
+
+	.container {
+		max-width: 690px;
+	}
+
+	.planet-card {
+		&.Mercury {
+			button.active {
+				background-color: var(--clr-mercury);
+				border-color: var(--clr-mercury);
+			}
+		}
+
+		&.Venus {
+			button.active {
+				background-color: var(--clr-venus);
+				border-color: var(--clr-venus);
+			}
+		}
+
+		&.Earth {
+			button.active {
+				background-color: var(--clr-earth);
+				border-color: var(--clr-earth);
+			}
+		}
+
+		&.Mars {
+			button.active {
+				background-color: var(--clr-mars);
+				border-color: var(--clr-mars);
+			}
+		}
+
+		&.Jupiter {
+			button.active {
+				background-color: var(--clr-jupiter);
+				border-color: var(--clr-jupiter);
+			}
+		}
+
+		&.Saturn {
+			button.active {
+				background-color: var(--clr-saturn);
+				border-color: var(--clr-saturn);
+			}
+		}
+
+		&.Uranus {
+			button.active {
+				background-color: var(--clr-uranus);
+				border-color: var(--clr-uranus);
+			}
+		}
+
+		&.Neptune {
+			button.active {
+				background-color: var(--clr-neptune);
+				border-color: var(--clr-neptune);
+			}
+		}
 	}
 }
 
@@ -73,9 +223,12 @@ h6 {
 	:root {
 		--fs-700: 2.5rem; // 40
 		--fs-800: 5rem; // 80
-	}
-}
 
-h1 {
-	font-size: var(--fs-800);
+		--lh-title: 6.4375rem;
+		--lh-stat: 3.4375rem;
+	}
+
+	.container {
+		max-width: 1110px;
+	}
 }

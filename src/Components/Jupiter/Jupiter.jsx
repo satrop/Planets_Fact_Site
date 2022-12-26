@@ -1,6 +1,7 @@
 import React from 'react';
 import Content from '../Content/Content';
 import data from '../../assets/data.json';
+import './jupiter.scss';
 
 const Jupiter = () => {
 	const contentData = data.map((item) => {
