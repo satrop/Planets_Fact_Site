@@ -8,11 +8,10 @@
 }
 html,
 body {
+	overflow-x: hidden;
 	height: 100%;
 }
 body {
-	width: 100%;
-	overflow-x: hidden;
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
 	background-color: var(--clr-n-100);
@@ -47,13 +46,14 @@ h6 {
 	--clr-n-100: hsla(240, 67%, 8%, 1); // Black
 	--clr-n-200: hsla(360, 100%, 100%, 1); // White
 	--clr-n-300: hsla(360, 100%, 100%, 0.5); // Gray
+	--clr-n-400: hsla(0, 0%, 85%, 0.2); // Hover
 
 	--clr-mercury: hsla(194, 48%, 49%, 1);
 	--clr-venus: hsla(33, 82%, 61%, 1);
 	--clr-earth: hsla(263, 67%, 51%, 1);
-	--clr-mars: hsla(10, 63%, 51%, 1);
-	--clr-jupiter: hsla(2, 68%, 53%, 1);
-	--clr-saturn: hsla(17, 73%, 46%, 1);
+	--clr-mars: hsla(12, 100%, 64%, 1);
+	--clr-jupiter: hsla(27, 75%, 70%, 1);
+	--clr-saturn: hsla(40, 96%, 70%, 1);
 	--clr-uranus: hsla(169, 73%, 44%, 1);
 	--clr-neptune: hsla(222, 87%, 56%, 1);
 

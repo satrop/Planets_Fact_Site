@@ -1,0 +1,183 @@
+.main-nav {
+	width: calc(100% - 48px);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: var(--clr-200);
+	padding-block: 18.5px;
+	padding-inline: 24px;
+	border-bottom: 1px solid var(--border);
+
+	.container {
+		width: 100%;
+	}
+
+	.logo {
+		font-family: var(--ff-title);
+		color: inherit;
+		text-decoration: none;
+		font-size: 1.75rem;
+		text-transform: uppercase;
+	}
+
+	.menu-trigger {
+		background-color: transparent;
+		border: 0;
+	}
+
+	ul {
+		position: absolute;
+		width: calc(100% - 48px);
+		top: 80px;
+		left: -100%;
+		transition: left var(--trans-dur);
+		background-color: var(--clr-100);
+		padding: 23px 24px 46px 24px;
+		z-index: 100;
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+		backdrop-filter: blur(30px);
+
+		li {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			height: 66px;
+			border-bottom: 1px solid var(--border);
+
+			a {
+				color: var(--clr-100);
+				text-decoration: none;
+				position: relative;
+				display: flex;
+				text-transform: uppercase;
+				font-family: var(--ff-main);
+
+				&::before {
+					display: block;
+					content: '';
+					width: 20px;
+					height: 20px;
+					border-radius: 50%;
+					margin-right: 24px;
+				}
+
+				&.mercury {
+					&::before {
+						background-color: var(--clr-mercury);
+					}
+				}
+				&.venus {
+					&::before {
+						background-color: var(--clr-venus);
+					}
+				}
+				&.earth {
+					&::before {
+						background-color: var(--clr-earth);
+					}
+				}
+				&.mars {
+					&::before {
+						background-color: var(--clr-mars);
+					}
+				}
+				&.jupiter {
+					&::before {
+						background-color: var(--clr-jupiter);
+					}
+				}
+				&.saturn {
+					&::before {
+						background-color: var(--clr-saturn);
+					}
+				}
+				&.uranus {
+					&::before {
+						background-color: var(--clr-uranus);
+					}
+				}
+				&.neptune {
+					&::before {
+						background-color: var(--clr-neptune);
+					}
+				}
+			}
+		}
+
+		&.active {
+			left: 0;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.main-nav {
+		padding-bottom: 0;
+		flex-direction: column;
+
+		.menu-trigger {
+			display: none;
+		}
+
+		ul {
+			position: relative;
+			left: unset;
+			top: unset;
+			backdrop-filter: unset;
+			flex-direction: row;
+			max-width: 800px;
+			justify-content: space-between;
+			padding: 23px 0 0 0;
+
+			li {
+				border-bottom: unset;
+				display: flex;
+				justify-content: center;
+
+				a {
+					opacity: 0.75;
+
+					&::before {
+						opacity: 0;
+						position: absolute;
+						width: 100%;
+						height: 4px;
+						top: -15px;
+						border-radius: unset;
+						transition: opacity var(--trans-dur);
+					}
+
+					&:hover {
+						&::before {
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1440px) {
+	.main-nav {
+		padding-top: 0;
+		flex-direction: row;
+		height: 85px;
+
+		ul {
+			padding: 0;
+			max-width: 1300px;
+
+			li {
+				a {
+					&::before {
+						width: 130%;
+						top: -31px;
+					}
+				}
+			}
+		}
+	}
+}

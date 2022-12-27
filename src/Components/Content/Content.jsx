@@ -6,6 +6,14 @@ const Content = (props) => {
 	const [displayText, setDisplayText] = useState(props.overview.content);
 	const [displayImage, setDisplayImage] = useState(props.images.planet);
 
+	const [isActive, setActive] = useState(false);
+	const addClassActive = () => {
+		setActive(true);
+	};
+	const removeClassActive = () => {
+		setActive(false);
+	};
+
 	return (
 		<div className="container">
 			<div className={`planet-card ${props.name}`}>
@@ -15,6 +23,7 @@ const Content = (props) => {
 						onClick={() => {
 							setDisplayText(props.overview.content);
 							setDisplayImage(props.images.planet);
+							removeClassActive();
 						}}
 					>
 						<span className="num">01</span>
@@ -24,6 +33,7 @@ const Content = (props) => {
 						onClick={() => {
 							setDisplayText(props.structure.content);
 							setDisplayImage(props.images.internal);
+							removeClassActive();
 						}}
 					>
 						<span className="num">02</span>
@@ -33,17 +43,21 @@ const Content = (props) => {
 						onClick={() => {
 							setDisplayText(props.geology.content);
 							setDisplayImage(props.images.planet);
+							addClassActive();
 						}}
 					>
 						<span className="num">03</span>
 						<span>Surface</span>
 					</button>
 				</nav>
-				<img
-					src={displayImage}
-					alt={props.name}
-					className="planet-card__image"
-				/>
+				<div className="planet-card__image">
+					<img src={displayImage} alt={props.name} />
+					<img
+						className={`geology-image ${isActive ? 'active' : ''}`}
+						src={props.images.geology}
+						alt={`${props.name} geology`}
+					/>
+				</div>
 				<div className="planet-card__info">
 					<div className="header">{props.name}</div>
 					<div className="text">{displayText}</div>
