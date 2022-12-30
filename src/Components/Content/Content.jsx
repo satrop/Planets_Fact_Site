@@ -6,12 +6,12 @@ const Content = (props) => {
 	const [displayText, setDisplayText] = useState(props.overview.content);
 	const [displayImage, setDisplayImage] = useState(props.images.planet);
 
-	const [isActive, setActive] = useState(false);
+	const [isActive, setIsActive] = useState(false);
 	const addClassActive = () => {
-		setActive(true);
+		setIsActive(true);
 	};
 	const removeClassActive = () => {
-		setActive(false);
+		setIsActive(false);
 	};
 
 	const buttonData = [
@@ -35,17 +35,31 @@ const Content = (props) => {
 		},
 	];
 
-	const buttonClick = () => {
-		setDisplayText(props.overview.content);
-		setDisplayImage(props.images.planet);
-		console.log('Hi');
+	const buttonClick = (event) => {
+		console.log(event.target.id);
+		if (event.target.id == 1) {
+			setDisplayText(props.overview.content);
+			setDisplayImage(props.images.planet);
+			removeClassActive();
+			// setIsActive((isActive) => (isActive === event ? 'active' : ''));
+			// setIsActive(${isActive ? 'active' : ''})
+		} else if (event.target.id == 2) {
+			setDisplayText(props.structure.content);
+			setDisplayImage(props.images.internal);
+			removeClassActive();
+		} else if (event.target.id == 3) {
+			setDisplayText(props.geology.content);
+			setDisplayImage(props.images.planet);
+			addClassActive();
+		}
 	};
 
 	const buttons = buttonData.map((button) => {
 		return (
 			<button
+				id={button.id}
 				key={button.id}
-				className="active"
+				// className={setIsActive}
 				onClick={buttonClick}>
 				<span className="num">{button.number}</span>
 				{button.text}
@@ -56,37 +70,7 @@ const Content = (props) => {
 	return (
 		<div className="container">
 			<div className={`planet-card ${props.name}`}>
-				<nav className="planet-card__nav">
-					{buttons}
-					{/* <button
-						className="active"
-						onClick={() => {
-							setDisplayText(props.overview.content);
-							setDisplayImage(props.images.planet);
-							removeClassActive();
-						}}>
-						<span className="num">01</span>
-						{button}
-					</button>
-					<button
-						onClick={() => {
-							setDisplayText(props.structure.content);
-							setDisplayImage(props.images.internal);
-							removeClassActive();
-						}}>
-						<span className="num">02</span>
-						<span>Structure</span>
-					</button>
-					<button
-						onClick={() => {
-							setDisplayText(props.geology.content);
-							setDisplayImage(props.images.planet);
-							addClassActive();
-						}}>
-						<span className="num">03</span>
-						<span>Surface</span>
-					</button> */}
-				</nav>
+				<nav className="planet-card__nav">{buttons}</nav>
 				<div className="planet-card__image">
 					<img
 						src={displayImage}
