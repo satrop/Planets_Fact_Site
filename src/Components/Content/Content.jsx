@@ -14,28 +14,66 @@ const Content = (props) => {
 		setActive(false);
 	};
 
+	const buttonData = [
+		{
+			number: '01',
+			text: 'overview',
+			isHeld: false,
+			id: 1,
+		},
+		{
+			number: '02',
+			text: 'structure',
+			isHeld: false,
+			id: 2,
+		},
+		{
+			number: '03',
+			text: 'surface',
+			isHeld: false,
+			id: 3,
+		},
+	];
+
+	const buttonClick = () => {
+		setDisplayText(props.overview.content);
+		setDisplayImage(props.images.planet);
+		console.log('Hi');
+	};
+
+	const buttons = buttonData.map((button) => {
+		return (
+			<button
+				key={button.id}
+				className="active"
+				onClick={buttonClick}>
+				<span className="num">{button.number}</span>
+				{button.text}
+			</button>
+		);
+	});
+
 	return (
 		<div className="container">
 			<div className={`planet-card ${props.name}`}>
 				<nav className="planet-card__nav">
-					<button
+					{buttons}
+					{/* <button
 						className="active"
 						onClick={() => {
 							setDisplayText(props.overview.content);
 							setDisplayImage(props.images.planet);
 							removeClassActive();
-						}}
-					>
+						}}>
 						<span className="num">01</span>
-						<span>Overview</span>
+						{button}
 					</button>
 					<button
 						onClick={() => {
 							setDisplayText(props.structure.content);
 							setDisplayImage(props.images.internal);
 							removeClassActive();
-						}}
-					>
+						}}>
 						<span className="num">02</span>
 						<span>Structure</span>
 					</button>
@@ -44,14 +82,16 @@ const Content = (props) => {
 							setDisplayText(props.geology.content);
 							setDisplayImage(props.images.planet);
 							addClassActive();
-						}}
-					>
+						}}>
 						<span className="num">03</span>
 						<span>Surface</span>
-					</button>
+					</button> */}
 				</nav>
 				<div className="planet-card__image">
-					<img src={displayImage} alt={props.name} />
+					<img
+						src={displayImage}
+						alt={props.name}
+					/>
 					<img
 						className={`geology-image ${isActive ? 'active' : ''}`}
 						src={props.images.geology}
@@ -63,14 +103,19 @@ const Content = (props) => {
 					<div className="text">{displayText}</div>
 					<div className="link">
 						Source
-						<a href="{props.overview.source}" className="source">
+						<a
+							href="{props.overview.source}"
+							className="source">
 							Wikipedia
 							<div className="visually-hidden">
-								External link to Wikipedia about the planet{' '}
-								{props.name}
+								External link to Wikipedia about the planet {props.name}
 							</div>
 						</a>
-						<img src={icon} alt="" aria-hidden="true" />
+						<img
+							src={icon}
+							alt=""
+							aria-hidden="true"
+						/>
 					</div>
 				</div>
 				<div className="planet-card__stats">
