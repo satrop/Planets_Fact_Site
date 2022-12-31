@@ -14,11 +14,11 @@ const Content = (props) => {
 		setIsActive(false);
 	};
 
-	const buttonData = [
+	const [buttonData, setButtonData] = useState([
 		{
 			number: '01',
 			text: 'overview',
-			isHeld: false,
+			isHeld: true,
 			id: 1,
 		},
 		{
@@ -33,16 +33,21 @@ const Content = (props) => {
 			isHeld: false,
 			id: 3,
 		},
-	];
+	]);
 
 	const buttonClick = (event) => {
-		console.log(event.target.id);
+		setButtonData((prevButtons) => {
+			return prevButtons.map((button) => {
+				if (button.id == event.target.id) {
+					return { ...button, isHeld: true };
+				} else return { ...button, isHeld: false };
+			});
+		});
+
 		if (event.target.id == 1) {
 			setDisplayText(props.overview.content);
 			setDisplayImage(props.images.planet);
 			removeClassActive();
-			// setIsActive((isActive) => (isActive === event ? 'active' : ''));
-			// setIsActive(${isActive ? 'active' : ''})
 		} else if (event.target.id == 2) {
 			setDisplayText(props.structure.content);
 			setDisplayImage(props.images.internal);
@@ -59,7 +64,7 @@ const Content = (props) => {
 			<button
 				id={button.id}
 				key={button.id}
-				// className={setIsActive}
+				className={button.isHeld ? 'active' : ' '}
 				onClick={buttonClick}>
 				<span className="num">{button.number}</span>
 				{button.text}
