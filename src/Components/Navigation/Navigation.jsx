@@ -31,7 +31,7 @@ const Navigation = () => {
 						onClick={ToggleClass}
 						className="mercury"
 						to="Planets_Fact_Site/mercury">
-						Mercurys
+						Mercury
 					</Link>
 				</li>
 				<li>
