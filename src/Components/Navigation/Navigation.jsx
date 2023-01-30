@@ -4,26 +4,21 @@ import hamburger from '../../../public/icon-hamburger.svg';
 import './navigation.scss';
 
 const Navigation = () => {
-	const [isActive, setActive] = useState(true);
+	const [isActive, setActive] = useState(false);
 	const ToggleClass = () => {
 		setActive(!isActive);
 	};
 
 	return (
 		<nav className="main-nav">
-			<Link
-				className="logo"
-				to="Planets_Fact_Site/">
+			<Link className="logo" to="Planets_Fact_Site/">
 				The Planets
 			</Link>
 			<button
 				className={`menu-trigger ${isActive ? 'active' : ''}`}
 				onClick={ToggleClass}
 				aria-label="Open mobile menu">
-				<img
-					src={hamburger}
-					alt=""
-				/>
+				<img src={hamburger} alt="" />
 			</button>
 			<ul className={isActive ? 'active' : ''}>
 				<li>
